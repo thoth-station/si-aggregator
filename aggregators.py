@@ -9,7 +9,7 @@ LOW_SEV_WEIGHT = 1
 MED_SEV_WEIGHT = 10
 HI_SEV_WEIGHT = 100
 
-def sample_aggregator(si_bandit_results: Dict[str, Any], si_cloc_results: Dict[str, Any], *) -> float:
+def sample_aggregator(si_bandit_results: Dict[str, Any], si_cloc_results: Dict[str, Any], **kwargs) -> float:
     cloc_python = si_cloc_results["result"]["Python"]["code"]
     metrics = si_bandit_results["result"]["metrics"]
     score = 0
