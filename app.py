@@ -107,6 +107,8 @@ def si_aggregator(
             si_cloc_results = json.load(f)
 
     out = agg_func(si_bandit_results=si_bandit_results, si_cloc_results=si_cloc_results)
+    out["bandit_results"] = si_bandit_results
+    out["cloc_results"] = si_cloc_results
 
     print_command_result(
         click_ctx=click_ctx,
