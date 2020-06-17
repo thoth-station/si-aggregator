@@ -29,7 +29,7 @@ MED_SEV_WEIGHT = 10
 HI_SEV_WEIGHT = 100
 
 
-def sample_aggregator(si_bandit_results: Dict[str, Any], si_cloc_results: Dict[str, Any], **kwargs) -> float:
+def sample_aggregator(si_bandit_results: Dict[str, Any], si_cloc_results: Dict[str, Any], **kwargs) -> Dict[str, Any]:
     """Run an example of an aggregator using results from si-cloc and si-bandit."""
     cloc_python = si_cloc_results["result"]["Python"]["code"]
     metrics = si_bandit_results["result"]["metrics"]
@@ -51,4 +51,4 @@ def sample_aggregator(si_bandit_results: Dict[str, Any], si_cloc_results: Dict[s
 
     score = score / (cloc_python * 10)
 
-    return score
+    return {"aggregator_results": {"score": score}}
