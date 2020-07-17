@@ -9,6 +9,7 @@ verify_ssl = true
 thoth-analyzer = "*"
 thoth-common = "*"
 click = "*"
+thoth-report-processing = "*"
 
 [requires]
 python_version = "3.6"

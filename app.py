@@ -36,7 +36,12 @@ __title__ = "si-aggregator"
 @click.command()
 @click.pass_context
 @click.option(
-    "--output", "-o", type=str, default="-", envvar="THOTH_SI_CLOC_OUTPUT", help="Output file to print results to."
+    "--output",
+    "-o",
+    type=str,
+    default="-",
+    envvar="THOTH_SI_AGGREGATOR_OUTPUT",
+    help="Output file to print results to.",
 )
 @click.option(
     "--package-name",
@@ -82,7 +87,12 @@ __title__ = "si-aggregator"
     help="Function name to be used as aggregation function.",
 )
 @click.option("--no-pretty", is_flag=True, help="Do not print results nicely.")
-@click.option("--results-as-files", is_flag=True, help="Indicates that si results point to file that needs to be read")
+@click.option(
+    "--results-as-files",
+    is_flag=True,
+    default=True,
+    help="Indicates that si results point to file that needs to be read",
+)
 def si_aggregator(
     click_ctx,
     output: Optional[str],
@@ -107,8 +117,6 @@ def si_aggregator(
             si_cloc_results = json.load(f)
 
     out = agg_func(si_bandit_results=si_bandit_results, si_cloc_results=si_cloc_results)
-    out["bandit_results"] = si_bandit_results
-    out["cloc_results"] = si_cloc_results
 
     print_command_result(
         click_ctx=click_ctx,
