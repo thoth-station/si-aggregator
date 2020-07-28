@@ -82,7 +82,6 @@ __title__ = "si-aggregator"
     help="Function name to be used as aggregation function.",
 )
 @click.option("--no-pretty", is_flag=True, help="Do not print results nicely.")
-@click.option("--results-as-files", is_flag=True, help="Indicates that si results point to file that needs to be read")
 def si_aggregator(
     click_ctx,
     output: Optional[str],
@@ -93,18 +92,16 @@ def si_aggregator(
     si_cloc_results: str,
     aggregation_func: str,
     no_pretty: bool,
-    results_as_files: bool,
 ) -> None:
     """Run the cli for si-aggregator."""
     agg_func = getattr(aggregators, aggregation_func)
     if agg_func is None:
         raise NotImplementedError(f"{aggregation_func} aggregation function not implemented yet.")
 
-    if results_as_files:
-        with open(si_bandit_results, "r") as f:
-            si_bandit_results = json.load(f)
-        with open(si_cloc_results, "r") as f:
-            si_cloc_results = json.load(f)
+    with open(si_bandit_results, "r") as f:
+        si_bandit_results = json.load(f)
+    with open(si_cloc_results, "r") as f:
+        si_cloc_results = json.load(f)
 
     out = agg_func(si_bandit_results=si_bandit_results, si_cloc_results=si_cloc_results)
     out["bandit_results"] = si_bandit_results
