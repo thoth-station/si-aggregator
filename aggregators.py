@@ -59,7 +59,7 @@ def sample_aggregator(si_bandit_results: Dict[str, Any], si_cloc_results: Dict[s
 
 def process_data(si_bandit_results: Dict[str, Any], si_cloc_results: Dict[str, Any], **kwargs) -> Dict[str, Any]:
     """Process data into 1 dimensional dict for storing on database."""
-    aggregate_json = security_aggregator.create_si_aggregated_json(
-        si_bandit_report=si_bandit_results, si_cloc_report=si_cloc_results, filters_files=["/test"]
+    aggregate_json = security_aggregator.create_si_aggregated_results(
+        si_bandit_report=si_bandit_results, si_cloc_report=si_cloc_results, filters_files=["/test"], output_json=True
     )
     return aggregate_json
