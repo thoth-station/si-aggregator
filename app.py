@@ -18,12 +18,16 @@
 """This is the main script of si-cloc which counts lines of code."""
 
 import click
+import logging
 
 from typing import Optional
 import json
 
 from thoth.analyzer import print_command_result
 from thoth.common import init_logging
+from thoth.analyzer import __version__ as __analyzer__version__
+from thoth.common import __version__ as __common__version__
+from thoth.report_processing import __version__ as __report_processing__version__
 
 import aggregators
 
@@ -32,6 +36,15 @@ init_logging()
 __version__ = "0.1.3"
 __title__ = "si-aggregator"
 
+
+__service_version__ = (
+    f"{__version__}+"
+    f"analyzer.{__analyzer__version__}.common.{__common__version__}."
+    f"report_processing.{__report_processing__version__}"
+)
+
+_LOGGER = logging.getLogger(__name__)
+_LOGGER.info("SI Aggregator v%s", __service_version__)
 
 @click.command()
 @click.pass_context
@@ -94,6 +107,7 @@ def si_aggregator(
     no_pretty: bool,
 ) -> None:
     """Run the cli for si-aggregator."""
+    __
     agg_func = getattr(aggregators, aggregation_func)
     if agg_func is None:
         raise NotImplementedError(f"{aggregation_func} aggregation function not implemented yet.")
