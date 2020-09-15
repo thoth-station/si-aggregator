@@ -43,7 +43,7 @@ __service_version__ = (
     f"report_processing.{__report_processing__version__}"
 )
 
-_LOGGER = logging.getLogger(__name__)
+_LOGGER = logging.getLogger(__title__)
 _LOGGER.info("SI Aggregator v%s", __service_version__)
 
 @click.command()
@@ -107,7 +107,6 @@ def si_aggregator(
     no_pretty: bool,
 ) -> None:
     """Run the cli for si-aggregator."""
-    __
     agg_func = getattr(aggregators, aggregation_func)
     if agg_func is None:
         raise NotImplementedError(f"{aggregation_func} aggregation function not implemented yet.")
