@@ -23,3 +23,11 @@ all the things that you see...
 * :neckbeard: include kevin as a maintainer for project
 * add process_data aggregator (#14)
 * include aicoe-ci configuration file (#12)
+
+## Release 0.1.3 (2020-09-15T14:16:19)
+### Features
+* Use new method (#21)
+* remove flag for 'results_from_file' (#20)
+* dependency missing (#19)
+### Automatic Updates
+* :pushpin: Automatic update of dependency thoth-common from 0.17.3 to 0.19.0 (#23)
