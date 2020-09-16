@@ -31,3 +31,7 @@ all the things that you see...
 * dependency missing (#19)
 ### Automatic Updates
 * :pushpin: Automatic update of dependency thoth-common from 0.17.3 to 0.19.0 (#23)
+
+## Release 0.1.4 (2020-09-16T07:26:13)
+### Features
+* Add version logs (#26)
