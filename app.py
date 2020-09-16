@@ -46,6 +46,7 @@ __service_version__ = (
 _LOGGER = logging.getLogger(__title__)
 _LOGGER.info("SI Aggregator v%s", __service_version__)
 
+
 @click.command()
 @click.pass_context
 @click.option(
