@@ -35,3 +35,9 @@ all the things that you see...
 ## Release 0.1.4 (2020-09-16T07:26:13)
 ### Features
 * Add version logs (#26)
+
+## Release 0.1.5 (2020-09-16T13:18:00)
+### Features
+* Adjust env variable CLI (#30)
+### Improvements
+* :star: make pre-commit happy (#29)
