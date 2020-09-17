@@ -50,7 +50,12 @@ _LOGGER.info("SI Aggregator v%s", __service_version__)
 @click.command()
 @click.pass_context
 @click.option(
-    "--output", "-o", type=str, default="-", envvar="THOTH_SI_AGGREGATOR_OUTPUT", help="Output file to store results to (WARNING: if nothing is provided it prints only) ."
+    "--output",
+    "-o",
+    type=str,
+    default="-",
+    envvar="THOTH_SI_AGGREGATOR_OUTPUT",
+    help="Output file to store results to (WARNING: if nothing is provided it prints only) .",
 )
 @click.option(
     "--package-name",
