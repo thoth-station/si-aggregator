@@ -18,10 +18,12 @@
 """This is the main script of si-cloc which counts lines of code."""
 
 import click
-import logging
 
-from typing import Optional
+import logging
+from typing import Optional, Dict, Any
 import json
+from datetime import datetime
+import os
 
 from thoth.analyzer import print_command_result
 from thoth.common import init_logging
@@ -45,6 +47,13 @@ __service_version__ = (
 
 _LOGGER = logging.getLogger(__title__)
 _LOGGER.info("SI Aggregator v%s", __service_version__)
+
+
+def _gen_metadata_on_err() -> Dict[str, Any]:
+    to_ret = dict()
+    to_ret["document_id"] = os.getenv("THOTH_DOCUMENT_ID",)  # fail here, we need a document ID to sync properly
+    to_ret["datetime"] = str(datetime.utcnow())
+    return to_ret
 
 
 @click.command()
@@ -123,6 +132,10 @@ def si_aggregator(
         si_cloc_results = json.load(f)
 
     out = agg_func(si_bandit_results=si_bandit_results, si_cloc_results=si_cloc_results)
+
+    if out.get("error", False):
+        out["metadata"] = _gen_metadata_on_err()
+
     out["bandit_results"] = si_bandit_results
     out["cloc_results"] = si_cloc_results
 
