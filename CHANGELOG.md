@@ -41,3 +41,12 @@ all the things that you see...
 * Adjust env variable CLI (#30)
 ### Improvements
 * :star: make pre-commit happy (#29)
+
+## Release 0.1.6 (2020-11-20T15:43:43)
+### Features
+* give flag if either or both si-cloc and si-bandit failed (#35)
+### Improvements
+* :star: make pre-commit happy
+### Automatic Updates
+* :pushpin: Automatic update of dependency thoth-report-processing from 0.3.3 to 0.3.5 (#37)
+* :pushpin: Automatic update of dependency thoth-common from 0.19.0 to 0.20.2 (#36)
