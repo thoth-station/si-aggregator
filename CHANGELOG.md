@@ -1,5 +1,12 @@
 # Changelog for Thoth's SI-Aggregator GitHub Project
 
+## Release 0.2.0 (2021-12-06T20:10:52)
+* :arrow_up: Automatic update of dependencies by Kebechet for the ubi8 environment (#54)
+* Update pyproject.toml to use Python 3.8 (#45)
+* :arrow_up: Automatic update of dependencies by kebechet. (#44)
+* update .aicoe-ci.yaml (#43)
+* port to python 38 (#42)
+
 ## [0.1.0] - 2019-Sep-11 - goern
 
 ### Added

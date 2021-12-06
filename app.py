@@ -35,7 +35,7 @@ import aggregators
 
 init_logging()
 
-__version__ = "0.1.6"
+__version__ = "0.2.0"
 __title__ = "si-aggregator"
 
 
